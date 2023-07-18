@@ -1,19 +1,13 @@
-import { Actor, vec } from "excalibur";
-import { Resources } from "./resources";
+import { Actor, CollisionType, Color, vec } from "excalibur";
 
 export class Player extends Actor {
   constructor() {
     super({
-      pos: vec(150, 150),
-      width: 100,
-      height: 100
+      pos: vec(150, 0),
+      width: 200,
+      height: 20,
+      color: Color.Chartreuse,
     });
-  }
-
-  onInitialize() {
-    this.graphics.add(Resources.Sword.toSprite());
-    this.on('pointerup', () => {
-      alert('yo');
-    });
+    this.body.collisionType = CollisionType.Fixed;
   }
 }
